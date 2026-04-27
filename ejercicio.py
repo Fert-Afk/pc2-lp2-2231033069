@@ -107,4 +107,16 @@ class Pasajero:
             total *= 0.5
         return total
     
+    def __str__(self):
+        return (
+            f"=== BOLETA DE EMBARQUE ===\n"
+            f"DNI: {self.dni}\n"
+            f"Nombre: {self.nombre_completo}\n"
+            f"Edad: {self.edad} ({self.categoria_edad})\n"
+            f"Ruta: {self.ruta}\n"
+            f"Peso equipaje: {self.peso_equipaje} kg\n"
+            f"Tarifa base: S/. {self.tarifa_base:.2f}\n"
+            f"Recargo equipaje: S/. {self.recargo_equipaje:.2f}\n"
+            f"TOTAL A PAGAR: S/. {self.tarifa_total:.2f}\n"
+        )
     
