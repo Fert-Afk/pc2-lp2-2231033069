@@ -71,4 +71,40 @@ class Pasajero:
         else:
             raise ValueError("Ruta no válida. Revise las rutas válidas en RUTAS_VALIDAS.")
         
+    @property
+    def categoria_edad(self):
+        """Clasificación por edad."""
+        if self.edad < 12:
+            return "Niño"
+        elif self.edad < 60:
+            return "Adulto"
+        else:
+            return "Adulto mayor"
+
+    @property
+    def tarifa_base(self):
+        """Tarifa base según ruta."""
+        tarifas = {
+            "Iquitos-Nauta": 30.0,
+            "Iquitos-Yurimaguas": 80.0,
+            "Iquitos-Pucallpa": 100.0,
+            "Iquitos-Sta. Rosa": 50.0
+        }
+        return tarifas[self.ruta]
+
+    @property
+    def recargo_equipaje(self):
+        """S/. 2 por kg sobre los 15 kg libres."""
+        exceso = max(0, self.peso_equipaje - Pasajero.PESO_LIBRE)
+        return exceso * 2.0
+
+    @property
+    def tarifa_total(self):
+        """Base + recargo, con descuento si aplica."""
+        total = self.tarifa_base + self.recargo_equipaje
+        # Descuento del 50% para niños
+        if self.categoria_edad == "Niño":
+            total *= 0.5
+        return total
+    
     
