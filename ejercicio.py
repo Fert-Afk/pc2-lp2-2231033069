@@ -119,4 +119,12 @@ class Pasajero:
             f"Recargo equipaje: S/. {self.recargo_equipaje:.2f}\n"
             f"TOTAL A PAGAR: S/. {self.tarifa_total:.2f}\n"
         )
+
+# Programa de prueba
+if __name__ == "__main__":
+    p1 = Pasajero("12345678", "Juan Pérez", 25, 20, "Iquitos-Nauta")
+    print(p1)
+            
+    p2 = Pasajero("87654321", "María López", 10, 18, "Iquitos-Pucallpa")
+    print(p2)
     
